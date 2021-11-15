@@ -11,7 +11,6 @@ public class DogAttributes {
 
     }
 }
-
 class Dog {
     private String name;
     private String breed;
