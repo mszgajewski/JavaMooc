@@ -3,19 +3,19 @@ package Debt;
 public class MainProgram {
     public static void main(String[] args) {
 
-        Debt mortgage = new Debt(120000.0, 1.01);
-        mortgage.printBalance();
+        Debt mbank = new Debt(120000.0, 1.01);
+        mbank.printBalance();
 
-        mortgage.waitOneYear();
-        mortgage.printBalance();
+        mbank.waitOneYear();
+        mbank.printBalance();
 
         int years = 0;
 
         while (years < 20) {
-            mortgage.waitOneYear();
+            mbank.waitOneYear();
             years = years + 1;
         }
 
-        mortgage.printBalance();
+        mbank.printBalance();
     }
 }
