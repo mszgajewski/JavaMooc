@@ -4,33 +4,29 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainProgram {
+    public static void main(String[] args) {
 
-    Scanner scanner = new Scanner(System.in);
-    ArrayList<Person> persons = new ArrayList<>();
+        ArrayList<Person> persons = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
 
-// Read person information from the user
-while (true) {
-        System.out.print("Enter name, empty will end: ");
-        String name = scanner.nextLine();
-        if (name.isEmpty()) {
-            break;
+        while (true) {
+            System.out.print("First name: ");
+            String userName = scanner.nextLine();
+            if (userName.isEmpty()) {
+                break;
+            }
+
+            System.out.print("Last name: ");
+            String userLastName = scanner.nextLine();
+
+            System.out.print("Identification number: ");
+            int idNumber = Integer.valueOf(scanner.nextLine());
+
+            persons.add(new Person(userName, userLastName, idNumber));
+            }
+
+            for (Person person : persons) {
+                System.out.println(person);
+            }
         }
-
-        System.out.print("Enter the age of the person " + name + ": ");
-
-        int age = Integer.valueOf(scanner.nextLine());
-
-        // We add a new person to the list.
-        // The person's name and age were decided by the user
-        persons.add(new Person(name, age));
     }
-
-// We'll print the number of the inputted persons, and the persons themselves
-System.out.println();
-System.out.println("Total number of persons: " + persons.size());
-System.out.println("Persons: ");
-
-for (Person person: persons) {
-        System.out.println(person);
-    }
-}
