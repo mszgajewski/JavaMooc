@@ -24,7 +24,7 @@ public class MainProgram {
 
             persons.add(new Person(userName, userLastName, idNumber));
             }
-
+ 
             for (Person person : persons) {
                 System.out.println(person);
             }
