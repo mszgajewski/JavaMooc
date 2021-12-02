@@ -38,52 +38,47 @@ public class GradeStatistics {
             }
         }
 
-        public double passingPercentage(){
+        public float passingPercentage(){
         int count = 0;
             for(int grade : grades){
                 if (grade > 49) {
                     count++;
                 }
             }
-            return 100.0 * count / grades.size();
+            return (float) 100 * count / grades.size();
         }
+
+    public int numberOfGrades() {
+        int grade = 5;
+        int count = 0;
+        for (int received: this.grades) {
+            if (received == grade) {
+                count++;
+                grade--;
+            }
+        }
+
+        return count;
+    }
 
     public void printGradeDistribution() {
+        int grade = 5;
+        while (grade >= 0) {
+            int stars = numberOfGrades();
+            System.out.print(grade + ": ");
+            printStars(stars);
+            System.out.println("");
 
-        int[] gradeDistArr = new int[6]; // 0 through 5
+            grade = grade - 1;
+        }
+    }
 
-        for (int grade : this.grades) {
-
-            if (grade >= 90) {
-                gradeDistArr[0]++;
-
-            } else if (grade <= 89 && grade > 79) {
-                gradeDistArr[1]++;
-            } else if (grade <= 79 && grade > 69) {
-                gradeDistArr[2]++;
-            } else if (grade <= 69 && grade > 59) {
-                gradeDistArr[3]++;
-            } else if (grade <= 59 && grade > 49) {
-                gradeDistArr[4]++;
-            } else if (grade <= 49) {
-                gradeDistArr[5]++;
-            }
+    public static void printStars(int stars) {
+        while (stars > 0) {
+            System.out.print("*");
+            stars--;
 
         }
-        System.out.println("Grade distribution:");
-        int gradDistIndex = 5;
-
-        for (int e : gradeDistArr) {
-            System.out.print(gradDistIndex + ":");
-
-            for (int i = 0; i < e; i++) {
-                System.out.print("*");
-            }
-
-            System.out.print("\n"); //line break
-            gradDistIndex--;
-        }
-
     }
 
     public void printGrades() {
