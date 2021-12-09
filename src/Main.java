@@ -1,22 +1,24 @@
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Main {
 
     public static void main(String[] args) {
 
 
-            // Do the operations required here!
+        List<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            numbers.add(i);
+        }
 
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
-            HashMap<String, String> nickNames = new HashMap<>();
+        long howManyNumbers = numbers.stream()
+                .filter(i -> i < 4)
+                .map(i -> i * 2)
+                .filter(i -> i > 10)
+                .count();
 
-            nickNames.put("mathhew", "matt");
-            nickNames.put("micheael", "mix");
-            nickNames.put("arthur", "artie");
-
-            System.out.println(nickNames.get(name));
+        System.out.println(howManyNumbers);
 
     }
 }
